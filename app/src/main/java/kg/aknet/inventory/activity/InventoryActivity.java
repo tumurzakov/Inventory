@@ -1,4 +1,4 @@
-package inventory.aknet.kg.inventory.activity;
+package kg.aknet.inventory.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,12 +6,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import inventory.aknet.kg.inventory.R;
+import kg.aknet.inventory.R;
 
 
 public class InventoryActivity extends Activity {

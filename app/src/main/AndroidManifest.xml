@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="inventory.aknet.kg.inventory">
+    package="kg.aknet.inventory">
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+        android:name="com.orm.SugarApp">
+
+        <meta-data android:name="DATABASE" android:value="Inventory.db" />
+        <meta-data android:name="VERSION" android:value="2" />
+        <meta-data android:name="QUERY_LOG" android:value="true" />
+        <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="kg.aknet.inventory.storage" />
+
         <activity
-            android:name=".activity.MainActivity"
+            android:name="kg.aknet.inventory.activity.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,16 +24,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.InventoryActivity"
+            android:name="kg.aknet.inventory.activity.InventoryActivity"
             android:label="@string/title_activity_inventory"></activity>
         <activity
-            android:name=".activity.InventoriesActivity"
+            android:name="kg.aknet.inventory.activity.InventoriesActivity"
             android:label="@string/title_activity_inventories"></activity>
         <activity
-            android:name=".activity.SyncActivity"
+            android:name="kg.aknet.inventory.activity.SyncActivity"
             android:label="@string/title_activity_sync"></activity>
         <activity
-            android:name=".activity.AddItemActivity"
+            android:name="kg.aknet.inventory.activity.AddItemActivity"
             android:label="@string/title_activity_add_item"></activity>
     </application>
 

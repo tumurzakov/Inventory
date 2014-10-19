@@ -1,13 +1,22 @@
-package inventory.aknet.kg.inventory.activity;
+package kg.aknet.inventory.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 
-import inventory.aknet.kg.inventory.R;
+import com.orm.query.Select;
+
+import java.util.List;
+
+import kg.aknet.inventory.storage.Inventory;
+import kg.aknet.inventory.R;
 
 
 public class InventoriesActivity extends Activity {
@@ -18,6 +27,20 @@ public class InventoriesActivity extends Activity {
         setContentView(R.layout.activity_inventories);
 
         ListView lvInventories = (ListView) findViewById(R.id.lvInventories);
+
+        List<Inventory> list = Select.from(Inventory.class).orderBy("ID DESC").list();
+        InventoryAdapter adapter = new InventoryAdapter(getApplicationContext(), list);
+
+        lvInventories.setAdapter(adapter);
+
+        lvInventories.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                Intent intent = new Intent(getApplicationContext(), InventoryActivity.class);
+                intent.putExtra("kg.aknet.inventory.inventory_id", id);
+                startActivity(intent);
+            }
+        });
     }
 
 

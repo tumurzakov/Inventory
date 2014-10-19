@@ -1,4 +1,4 @@
-package inventory.aknet.kg.inventory.activity;
+package kg.aknet.inventory.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,7 +11,10 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView;
 import android.view.View;
 
-import inventory.aknet.kg.inventory.R;
+import com.orm.SugarDb;
+
+import kg.aknet.inventory.storage.InventoryDao;
+import kg.aknet.inventory.R;
 
 
 public class MainActivity extends Activity {
@@ -22,6 +25,9 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SugarDb db = new SugarDb(getApplicationContext());
+        db.getDB();
 
         ListView lvMain = (ListView) findViewById(R.id.lvMain);
 
@@ -36,6 +42,8 @@ public class MainActivity extends Activity {
 
                 if (id == 0) {
                     intent = new Intent(getApplicationContext(), InventoryActivity.class);
+                    InventoryDao inventoryDao = new InventoryDao();
+                    intent.putExtra("kg.aknet.inventory.inventory_id", inventoryDao.create());
                 } else if (id == 1) {
                     intent = new Intent(getApplicationContext(), InventoriesActivity.class);
                 } else if (id == 2) {

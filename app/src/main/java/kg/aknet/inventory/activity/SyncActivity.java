@@ -1,26 +1,26 @@
-package inventory.aknet.kg.inventory.activity;
+package kg.aknet.inventory.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import inventory.aknet.kg.inventory.R;
+import kg.aknet.inventory.R;
 
 
-public class AddItemActivity extends Activity {
+public class SyncActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_item);
+        setContentView(R.layout.activity_sync);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_add_item, menu);
+        getMenuInflater().inflate(R.menu.menu_sync, menu);
         return true;
     }
 
