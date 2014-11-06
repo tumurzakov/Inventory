@@ -41,11 +41,9 @@ public class MainActivity extends Activity {
                 Intent intent = null;
 
                 if (id == 0) {
-                    intent = new Intent(getApplicationContext(), InventoryActivity.class);
-                    InventoryDao inventoryDao = new InventoryDao();
-                    intent.putExtra("kg.aknet.inventory.inventory_id", inventoryDao.create());
-                } else if (id == 1) {
                     intent = new Intent(getApplicationContext(), InventoriesActivity.class);
+                } else if (id == 1) {
+                    intent = new Intent(getApplicationContext(), InventoryActivity.class);
                 } else if (id == 2) {
                     intent = new Intent(getApplicationContext(), SyncActivity.class);
                 }

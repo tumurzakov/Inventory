@@ -4,8 +4,11 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import kg.aknet.inventory.R;
+import kg.aknet.inventory.storage.InventoryItemDao;
 
 
 public class AddItemActivity extends Activity {
@@ -14,6 +17,18 @@ public class AddItemActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
+
+        Button btnAdd = (Button) findViewById(R.id.btnAdd);
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                InventoryItemDao inventoryItemDao = new InventoryItemDao();
+                long inventory_id = getIntent().getLongExtra("kg.aknet.inventory.inventory_id", 0L);
+                inventoryItemDao.create(inventory_id);
+                setResult(RESULT_OK);
+                finish();
+            }
+        });
     }
 
 
@@ -32,9 +47,6 @@ public class AddItemActivity extends Activity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }

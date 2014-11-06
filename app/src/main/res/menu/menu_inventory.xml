@@ -2,6 +2,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="kg.aknet.inventory.activity.InventoryActivity">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
+
+    <item android:id="@+id/action_inventory_add_item" android:title="@string/action_inventory_add_item"
         android:orderInCategory="100" app:showAsAction="never" />
+
+    <item android:id="@+id/action_inventory_save" android:title="@string/action_inventory_save"
+        android:orderInCategory="110" app:showAsAction="never" />
+
+    <item android:id="@+id/action_inventory_sync" android:title="@string/action_inventory_sync"
+        android:orderInCategory="120" app:showAsAction="never" />
 </menu>

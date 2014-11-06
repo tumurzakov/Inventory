@@ -27,7 +27,7 @@
                 android:id="@+id/lblInventory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Inventory #"
+                android:text="@string/inventory_title"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <TextView
@@ -45,47 +45,54 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Werehouse"
-                android:id="@+id/lblWarehouse" />
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/inventory_werehouse"
+                android:id="@+id/lblWerehouse"
+                android:layout_alignBottom="@+id/lblWerehouseName"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-                <EditText
-                    android:layout_width="fill_parent"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/txtWerehouse"
-                    android:layout_weight="1" />
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/lblWerehouseName"
+                    android:layout_alignParentRight="false"
+                    android:layout_alignParentLeft="true"
+                    android:layout_toLeftOf="@+id/btnSelectWerehouse" />
 
                 <Button
-                    android:layout_width="55dp"
-                    android:layout_height="fill_parent"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
                     android:text="..."
-                    android:id="@+id/btnFindWerehouse" />
-            </LinearLayout>
+                    android:id="@+id/btnSelectWerehouse"
+                    android:layout_alignParentRight="true" />
+
+            </RelativeLayout>
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btnAddItem"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Add Item"
-            android:layout_marginTop="10dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <requestFocus />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/inventory_rows"
+                android:id="@+id/lblRows" />
 
-        </Button>
-
-        <ListView
-            android:id="@+id/lvItems"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:choiceMode="singleChoice" />
+            <ListView
+                android:id="@+id/lvItems"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:choiceMode="singleChoice" />
+        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
